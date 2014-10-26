@@ -1,0 +1,36 @@
+## Documentation for Shiny App: CarPayment Calc
+
+This Shiny App allows you to compute Car Payments. A user enters the final sale price of the automobile (after taxes), and also enters the downpayment that was made to the dealer.  
+
+The user then inputs an interest rate between 1% and 12%, and selects a period over which payments are to be made.  
+
+The App returns the monthly payment over the period selected. The calculations made by the server are as follows:
+
+Amount to be Financed (P) = Total Sale - Downpayment  
+
+I = (Interest Rate / 100) / 12  
+
+N = Period * 12  
+
+Monthly Payment = (P * I) / (1 - (1 + I)^(-N))
+
+
+Example:  
+
+
+```r
+totalSale <- 25000
+downpayment <- 2000
+rate <- 5
+period <- 7
+
+P <- totalSale - downpayment
+I <- (rate / 100) / 12
+N <- period * 12
+monthlyPayment <- (P * I) / (1 - (1 + I)^(-N))
+monthlyPayment
+```
+
+```
+## [1] 325.1
+```
